@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="spot">
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="body_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="1.00403567718539703"
+        ixy="5.84359207050874E-20"
+        ixz="-1.82010263240806E-19"
+        iyy="1.00762097538812802"
+        iyz="-1.82130436040198E-19"
+        izz="1.00403567718539703" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/body.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/body.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="body_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 1.2"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="body_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="leg_fr_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.33048365251046" />
+      <inertia
+        ixx="0.00403567718539703"
+        ixy="5.84359207050874E-20"
+        ixz="-1.82010263240806E-19"
+        iyy="0.00762097538812802"
+        iyz="-1.82130436040198E-19"
+        izz="0.00403567718539703" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg_fr_joint"
+    type="continuous">
+    <origin
+      xyz="0.47 -0.5 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="body_link" />
+    <child
+      link="leg_fr_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <link
+    name="leg_fl_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.33048365251046" />
+      <inertia
+        ixx="0.00403567718539703"
+        ixy="5.84359207050874E-20"
+        ixz="-1.82010263240806E-19"
+        iyy="0.00762097538812802"
+        iyz="-1.82130436040198E-19"
+        izz="0.00403567718539703" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg_fl_joint"
+    type="continuous">
+    <origin
+      xyz="0.47 0.5 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="body_link" />
+    <child
+      link="leg_fl_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+
+  <link
+    name="leg_rr_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.33048365251046" />
+      <inertia
+        ixx="0.00403567718539703"
+        ixy="5.51923139126954E-20"
+        ixz="-4.9513716801704E-19"
+        iyy="0.00762097538812802"
+        iyz="-4.51352093856294E-20"
+        izz="0.00403567718539703" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg_rr_joint"
+    type="continuous">
+    <origin
+      xyz="-0.44 -0.5 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="body_link" />
+    <child
+      link="leg_rr_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+
+  <link
+    name="leg_rl_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.33048365251046" />
+      <inertia
+        ixx="0.00403567718539703"
+        ixy="5.51923139126954E-20"
+        ixz="-3.52834927017528E-19"
+        iyy="0.00762097538812802"
+        iyz="-1.82130436040198E-19"
+        izz="0.00403567718539703" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spot_description/meshes/leg.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg_rl_joint"
+    type="continuous">
+    <origin
+      xyz="-0.44 0.5 -0.07"
+      rpy="0 0 0" />
+    <parent
+      link="body_link" />
+    <child
+      link="leg_rl_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>

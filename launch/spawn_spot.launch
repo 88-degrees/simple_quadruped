@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+  <!-- Start position of robot in scene. -->
+  <arg name="init_pose" default="-x 0 -y 0 -z 0"/>
+  <arg name="robot_name" default="spot" />
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find spot_description)/config/joint_controller_gains.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="spot" args="joint_state_controller
+			                leg_fl_joint_position_controller
+					leg_fr_joint_position_controller
+					leg_rl_joint_position_controller
+					leg_rr_joint_position_controller"/>
+
+  <!-- Load robot_description param for tf, rviz and gazebo spawn. -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find spot_description)/urdf/spot.urdf.xacro" />
+
+  <!-- Spawn turtlebot into gazebo based on robot_description. -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg robot_name) $(arg init_pose) -param robot_description" />
+
+  <!-- Publish carre tf's. -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="pickup_state_publisher" />
+
+  <!--node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server">
+    <remap from="~cmd_vel" to="cmd_vel" />
+  </node-->
+
+</launch>

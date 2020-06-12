@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="appdeck_standard" >
+ 
+  <!--xacro:include filename="$(find spot_description)/urdf/spot.gazebo.xacro"/-->
+  <xacro:include filename="$(find spot_description)/urdf/spot.urdf"/>
+  <xacro:include filename="$(find spot_description)/urdf/spot.transmissions.xacro"/>
+
+</robot>

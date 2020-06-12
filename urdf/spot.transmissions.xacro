@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="spot" >
+ 
+     <transmission name="leg_fr_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg_fr_joint">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg_fr_motor">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+      <mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+     <transmission name="leg_fl_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg_fl_joint">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg_fl_motor">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+      <mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+     <transmission name="leg_rr_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg_rr_joint">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg_rr_motor">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+      <mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+     <transmission name="leg_rl_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="leg_rl_joint">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="leg_rl_motor">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+      <mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+
+
+  <gazebo>
+        <plugin name="gazebo_ros_control" 
+                filename="libgazebo_ros_control.so">
+          <robotNamespace>/spot</robotNamespace>
+          <robotParam>/robot_description</robotParam>
+          <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+  </gazebo>
+ 
+
+</robot>
