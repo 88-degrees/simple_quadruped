@@ -8,16 +8,16 @@ spot:
   leg_fl_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: leg_fl_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 50.0, i: 0.01, d: 1.0}
   leg_rl_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: leg_rl_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 50.0, i: 0.01, d: 1.0}
   leg_fr_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: leg_fr_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 50.0, i: 0.01, d: 1.0}
   leg_rr_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: leg_rr_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 50.0, i: 0.01, d: 1.0}
